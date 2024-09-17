@@ -1,4 +1,4 @@
-from source.RandomExercises.fizzbuzz import Fizzbuzz
+from source.random_exercises.fizzbuzz import Fizzbuzz
 
 
 class TestFizzbuzz:
