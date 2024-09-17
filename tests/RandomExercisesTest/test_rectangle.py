@@ -1,7 +1,3 @@
-import pytest
-import source.shapes as shapes
-
-
 def test_area(my_rectangle):
     assert my_rectangle.area() == 10 * 20
     

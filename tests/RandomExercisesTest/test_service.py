@@ -1,5 +1,4 @@
-import pytest
-import source.service as service
+import source.RandomExercises.service as service
 import unittest.mock as mock
 
 @mock.patch("source.service.get_user_from_db")

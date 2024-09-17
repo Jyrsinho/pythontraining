@@ -1,6 +1,4 @@
-import pytest
-
-import source.ciphertext as ciphertext
+import source.RandomExercises.ciphertext as ciphertext
 
 
 
@@ -10,7 +8,7 @@ def test_encrypt_ceasar_cypher():
     
     
 def test_encrypt(): 
-    result = ciphertext.encrypt_ceasar_cypher("BANANA",3, True, ciphertext.uppercase_alphabet)
+    result = ciphertext.encrypt_ceasar_cypher("BANANA", 3, True, ciphertext.uppercase_alphabet)
     assert result == "EDQDQD"
 
 
@@ -31,7 +29,7 @@ def test_encrypt():
 
     
 def test_encrypt():
-    result = ciphertext.encrypt_ceasar_cypher("HILJAA!!!",1, True, ciphertext.uppercase_alphabet)
+    result = ciphertext.encrypt_ceasar_cypher("HILJAA!!!", 1, True, ciphertext.uppercase_alphabet)
     assert result == "IJMKBB!!!"
     
     
@@ -40,7 +38,7 @@ def test_encrypt():
     assert result == "VWWV"
     
 def test_encrypt():
-    result = ciphertext.encrypt_ceasar_cypher("WXYZ",2, True, ciphertext.uppercase_alphabet)
+    result = ciphertext.encrypt_ceasar_cypher("WXYZ", 2, True, ciphertext.uppercase_alphabet)
     
     
 def test_decrypt():
@@ -53,11 +51,11 @@ def test_decrypt():
     assert result == "ZORRO"
 
 def test_decrypt():
-    result = ciphertext.encrypt_ceasar_cypher("LPDIBN DJFCJF",1, False, ciphertext.uppercase_alphabet)
+    result = ciphertext.encrypt_ceasar_cypher("LPDIBN DJFCJF", 1, False, ciphertext.uppercase_alphabet)
     assert result == "KOCHAM CIEBIE"
 
 def test_decrypt():
-    result = ciphertext.encrypt_ceasar_cypher("IJMKBB!!!",1 ,False, ciphertext.uppercase_alphabet)
+    result = ciphertext.encrypt_ceasar_cypher("IJMKBB!!!", 1, False, ciphertext.uppercase_alphabet)
     assert result == "HILJAA!!!"
 
 
@@ -67,12 +65,12 @@ def test_decrypt():
 
 
 def test_random_cypher_array():
-    result = ciphertext.create_random_cypher_array(alphabet= ['A','B','C','D','E','F','G','H'])
+    result = ciphertext.create_random_cypher_array(alphabet= ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'])
     assert result != ['A','B','C','D','E','F','G','H']
 
     
 def test_random_cypher_array_should_contain_no_duplicate_values():
-    result = ciphertext.create_random_cypher_array(alphabet= ['A','B','C','D'])
+    result = ciphertext.create_random_cypher_array(alphabet= ['A', 'B', 'C', 'D'])
     assert result != ['A','B','C','D']
     assert result.count('A') == 1
     assert result.count('B') == 1

@@ -1,5 +1,4 @@
-import pytest
-import source.mode as mode
+import source.RandomExercises.mode as mode
 
 # lista testeistä:
 # 

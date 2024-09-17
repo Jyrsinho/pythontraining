@@ -1,5 +1,6 @@
 import pytest
-import source.shapes as shapes
+import source.RandomExercises.shapes as shapes
+
 
 
 @pytest.fixture
@@ -8,7 +9,7 @@ def my_rectangle():
 
 @pytest.fixture
 def weird_rectangle():
-    return shapes.Rectangle(5,6)
+    return shapes.Rectangle(5, 6)
 
 @pytest.fixture
 def integer_array1():

@@ -1,13 +1,12 @@
 import math
 
-import pytest
-import source.shapes as shapes
+import source.RandomExercises.shapes as shapes
 
 class TestCircle:
     
     def setup_method(self, method):
         print(f"Setting up {method}")
-        self.circle = shapes.Circle(10 )
+        self.circle = shapes.Circle(10)
         
     def teardown_method(self, method):
         print(f"Tearing down {method}")
