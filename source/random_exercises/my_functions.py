@@ -14,7 +14,6 @@ def neliosumma(lista_a):
     print(summa)
     return summa
 
-
 def is_min_length(s):
     return False
 
