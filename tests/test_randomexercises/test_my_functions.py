@@ -1,6 +1,6 @@
 from pluggy import Result
 
-from source.random_exercises.my_functions import is_min_length, non_negative, liimaaja, shortener
+from source.random_exercises.my_functions import is_min_length, non_negative, liimaaja, shortener, abbreviate
 
 
 def test_is_min_length_should_return_false_when_string_less_than_eight():
@@ -71,11 +71,24 @@ def test_shortener_should_return_empty_string_when_given_string_less_than_five_c
     assert result == expected
 
 
-def test_abbreviate_should_take_the_first_letter_of_each_word_and_concatenate_them_in_uppercase():
-    string = "kissa istuu puussa"
+def test_abbreviate_should_return_P_for_pallo():
+    string = "pallo"
     result = abbreviate(string)
-    expected = "KIP"
+    expected = "P"
     assert result == expected
+    
+def test_abbreviate_should_return_PP_for_pallo_poika():
+    string = "pallo poika"
+    result = abbreviate(string)
+    expected = "PP"
+    assert result == expected
+    
+def test_abbreviate_should_return_empty_string_for_empty_string():
+    string = ""
+    result = abbreviate(string)
+    expected = ""
+    assert result == expected
+
     
 
     

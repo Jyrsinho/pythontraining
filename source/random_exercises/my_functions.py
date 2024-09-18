@@ -1,4 +1,4 @@
-from operator import ifloordiv
+from operator import ifloordiv, index
 
 
 def add(num1, num2):
@@ -35,4 +35,14 @@ def shortener(string):
     return string[:2] + string[-2:]
 
 def abbreviate(string):
-    return "KIP"
+   if len(string) == 0:
+       return ""
+   
+   abbreviated = ""
+   words = string.split(" ")
+   
+   for word in words:
+       abbreviated += word[0].upper()
+   
+   return abbreviated
+
