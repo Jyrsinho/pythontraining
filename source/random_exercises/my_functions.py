@@ -15,7 +15,10 @@ def neliosumma(lista_a):
     return summa
 
 def is_min_length(s):
-    return False
+    if  len(s) < 8:
+        return False
+    return True
+
 
 s1 = "kissa"
 print(is_min_length(s1))
