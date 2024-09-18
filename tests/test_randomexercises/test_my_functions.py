@@ -1,6 +1,6 @@
 from pluggy import Result
 
-from source.random_exercises.my_functions import is_min_length, non_negative, liimaaja
+from source.random_exercises.my_functions import is_min_length, non_negative, liimaaja, shortener
 
 
 def test_is_min_length_should_return_false_when_string_less_than_eight():
@@ -51,28 +51,23 @@ def test_should_return_empty_list_when_given_empty_list():
     result = non_negative(list)
     assert result == expected
     
-def test_liimaaja_should_return_empty_string_when_given_two_empty_strings():
-    #Arrange
-    a = ""
-    b = ""
-    #Act
-    result = liimaaja(a,b)
-    #Assert
+    
+def test_shortener_should_return_two_first_and_two_last_characters():
+    string = "kissa"
+    result = shortener(string)
+    expected = "kisa"
+    assert result == expected
+    
+def test_shortener_should_return_empty_string_when_given_string_is_empty():
+    string = ""
+    result = shortener(string)
     expected = ""
     assert result == expected
     
-def test_liimaaja_returns_a_when_given_a_and_empty_string():
-    a = "kissa"
-    b = ""
-    result = liimaaja(a,b)
-    expected = "kissa"
-    assert result == expected
-    
-def test_liimaaja_returns_concatenated_string_when_given_two_strings():
-    a = "kissa"
-    b = "ni"
-    result = liimaaja(a,b)
-    expected = "kissani"
+def test_shortener_should_return_empty_string_when_given_string_less_than_five_chars():
+    string = "kisa"
+    result = shortener(string)
+    expected = ""
     assert result == expected
     
 

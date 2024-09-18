@@ -27,4 +27,9 @@ def non_negative(luvut):
     return non_negative_list
 
 def liimaaja(a, b):
-    return a +b
+    return a +"_"+ b
+
+def shortener(string):
+    if len(string) <= 4:
+        return ""
+    return string[:2] + string[-2:]
