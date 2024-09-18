@@ -69,6 +69,13 @@ def test_shortener_should_return_empty_string_when_given_string_less_than_five_c
     result = shortener(string)
     expected = ""
     assert result == expected
+
+
+def test_abbreviate_should_take_the_first_letter_of_each_word_and_concatenate_them_in_uppercase():
+    string = "kissa istuu puussa"
+    result = abbreviate(string)
+    expected = "KIP"
+    assert result == expected
     
 
     

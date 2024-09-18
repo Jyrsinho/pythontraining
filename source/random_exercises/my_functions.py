@@ -33,3 +33,6 @@ def shortener(string):
     if len(string) <= 4:
         return ""
     return string[:2] + string[-2:]
+
+def abbreviate(string):
+    return "KIP"
