@@ -26,4 +26,5 @@ def non_negative(luvut):
     non_negative_list = [x for x in luvut if x >= 0]
     return non_negative_list
 
-        
+def liimaaja(a, b):
+    return a +b

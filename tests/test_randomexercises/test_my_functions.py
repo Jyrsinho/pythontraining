@@ -1,6 +1,6 @@
 from pluggy import Result
 
-from source.random_exercises.my_functions import is_min_length, non_negative
+from source.random_exercises.my_functions import is_min_length, non_negative, liimaaja
 
 
 def test_is_min_length_should_return_false_when_string_less_than_eight():
@@ -50,4 +50,31 @@ def test_should_return_empty_list_when_given_empty_list():
     expected = []
     result = non_negative(list)
     assert result == expected
+    
+def test_liimaaja_should_return_empty_string_when_given_two_empty_strings():
+    #Arrange
+    a = ""
+    b = ""
+    #Act
+    result = liimaaja(a,b)
+    #Assert
+    expected = ""
+    assert result == expected
+    
+def test_liimaaja_returns_a_when_given_a_and_empty_string():
+    a = "kissa"
+    b = ""
+    result = liimaaja(a,b)
+    expected = "kissa"
+    assert result == expected
+    
+def test_liimaaja_returns_concatenated_string_when_given_two_strings():
+    a = "kissa"
+    b = "ni"
+    result = liimaaja(a,b)
+    expected = "kissani"
+    assert result == expected
+    
+
+    
     
