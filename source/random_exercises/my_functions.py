@@ -1,3 +1,6 @@
+from operator import ifloordiv
+
+
 def add(num1, num2):
     return num1 + num2
 
@@ -19,9 +22,8 @@ def is_min_length(s):
         return False
     return True
 
-
-s1 = "kissa"
-print(is_min_length(s1))
-
+def non_negative(luvut):    
+    non_negative_list = [x for x in luvut if x >= 0]
+    return non_negative_list
 
         
