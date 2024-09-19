@@ -1,4 +1,3 @@
-from pluggy import Result
 
 from source.random_exercises.my_functions import is_min_length, non_negative, liimaaja, shortener, abbreviate
 
@@ -89,7 +88,7 @@ def test_abbreviate_should_return_empty_string_for_empty_string():
     expected = ""
     assert result == expected
 
-    
+
 
     
     

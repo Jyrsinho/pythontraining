@@ -1,5 +1,4 @@
-from operator import ifloordiv, index
-
+import numpy as np
 
 def add(num1, num2):
     return num1 + num2
@@ -45,4 +44,3 @@ def abbreviate(string):
        abbreviated += word[0].upper()
    
    return abbreviated
-
