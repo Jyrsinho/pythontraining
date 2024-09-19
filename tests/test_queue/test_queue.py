@@ -1,16 +1,4 @@
-"""
-In this exercise, you have the code and tests for a Queue class similar to previous examples in this part.
 
-Here, the class has a new untested method, remove_first(), which removes the first in line from the queue.
-
-Add three tests for the remove_first() method.
-
-The first test should check that the method removes the first element and not for example the last.
-The second test should check that the method returns the removed element.
-The third test should check that the method raises a RuntimeError when the queue is empty.
-
-Each test should be in a separate function and should be named so that pytest can automatically locate them. 
-"""
 import pytest
 
 from source.queue.queue import Queue
@@ -93,5 +81,43 @@ def test_remove_out_of_range():
 
     with pytest.raises(IndexError):  # Assert
         queue.remove(3)  # Act
+        
+def test_remove_first_removes_only_the_first_element():
+    #Arrange
+    queue = Queue()
+    queue.queue = [Queuer(id=1, position=1), Queuer(id=2, position=2), Queuer(id=3, position=3)]
+    #Act
+    queue.remove_first()
+    #Assert
+    assert queue.queue == [Queuer(id=2, position=1), Queuer(id=3, position=2)]
+    
+def test_remove_first_should_return_the_removed_first_element():
+    # Arrange
+    queue = Queue()
+    queue.queue = [Queuer(id=1, position=1), Queuer(id=2, position=2), Queuer(id=3, position=3)]
+    #Act and Assert
+    assert queue.remove_first() == Queuer(id=1, position=1)
+    
+def test_remove_first_should_raise_RuntimeError_when_queue_empty():
+    queue = Queue()
+    
+    with pytest.raises(RuntimeError):
+        queue.remove_first()
+    
 
+    
+
+"""
+In this exercise, you have the code and tests for a Queue class similar to previous examples in this part.
+
+Here, the class has a new untested method, remove_first(), which removes the first in line from the queue.
+
+Add three tests for the remove_first() method.
+
+The first test should check that the method removes the first element and not for example the last.
+The second test should check that the method returns the removed element.
+The third test should check that the method raises a RuntimeError when the queue is empty.
+
+Each test should be in a separate function and should be named so that pytest can automatically locate them. 
+"""
 
