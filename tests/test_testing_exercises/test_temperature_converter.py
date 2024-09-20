@@ -1,6 +1,6 @@
 import pytest
 from pytest import approx
-from source.random_exercises.temperature_converter import fahrenheit_to_celsius 
+from source.testing_exercises.temperature_converter import fahrenheit_to_celsius 
 
 @pytest.mark.parametrize(
     'temperature, expected', [
@@ -17,13 +17,3 @@ from source.random_exercises.temperature_converter import fahrenheit_to_celsius
 def test_temperature_converter(temperature,expected):
    assert fahrenheit_to_celsius(temperature) == approx(expected)
 
- 
-    
-    
-    
-    
-    
-    
-# assert result == approx(expected)    
-
-# Create parameterized test with expected value using approximation
