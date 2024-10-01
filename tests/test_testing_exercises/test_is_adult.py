@@ -40,5 +40,4 @@ def test_should_raise_ValueError_when_age_less_than_zero2():
 def test_should_raise_ValueError_when_age_less_than_zero3():
     with pytest.raises(ValueError):
         is_adult(-100)
-        
 
