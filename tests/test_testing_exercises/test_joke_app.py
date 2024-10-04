@@ -7,6 +7,7 @@ from xml.sax.handler import property_interning_dict
 import requests
 import requests_mock
 
+import source
 from source.testing_exercises.joke_app import get_random_joke, API_URL, print_random_joke
 from unittest.mock import patch
 
@@ -42,24 +43,21 @@ def test_should_call_the_api_once():
         mocked_get.assert_called_once_with(API_URL)
         
 def test_should_print_the_joke_in_correct_order(requests_mock, monkeypatch):
-    """
-    testi kestää yli kaksi sekuntia eli time.sleep ei ole mockattu.
-    myös output on väärä eli testi kutsuu APIa
-    """
 
     mocked_stdout = io.StringIO()
-    
     monkeypatch.setattr(sys, 'stdout', mocked_stdout)
-
+    
     requests_mock.get(API_URL, json=mocked_joke)
     
-    with patch("time.sleep") as mocked_sleep:
+    with patch("source.testing_exercises.joke_app.sleep", return_value=None) as mocked_sleep:
         print_random_joke()
     
     printed_output = mocked_stdout.getvalue()
     printed_lines = printed_output.strip().split("\n")
     expected_lines = ["Miksi joulupukki meni psykiatrille?", "Hän ei uskonut enää itseensä."]
     
+    
+    # mocked_sleep.assert_called_once_with(2)
     assert printed_lines == expected_lines
         
     
