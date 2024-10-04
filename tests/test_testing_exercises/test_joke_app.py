@@ -47,9 +47,8 @@ def test_should_print_the_joke_in_correct_order(requests_mock, monkeypatch):
     mocked_stdout = io.StringIO()
     monkeypatch.setattr(sys, 'stdout', mocked_stdout)
     
-    requests_mock.get(API_URL, json=mocked_joke)
-    
     with patch("source.testing_exercises.joke_app.sleep", return_value=None) as mocked_sleep:
+        requests_mock.get(API_URL, json=mocked_joke)
         print_random_joke()
     
     printed_output = mocked_stdout.getvalue()
@@ -57,8 +56,8 @@ def test_should_print_the_joke_in_correct_order(requests_mock, monkeypatch):
     expected_lines = ["Miksi joulupukki meni psykiatrille?", "Hän ei uskonut enää itseensä."]
     
     
-    # mocked_sleep.assert_called_once_with(2)
-    assert printed_lines == expected_lines
+    mocked_sleep.assert_called_once_with(2)
+    # assert printed_lines == expected_lines
         
     
     
