@@ -58,7 +58,8 @@ def test_should_print_the_joke_in_correct_order(monkeypatch):
 
 def test_should_call_the_sleep_function_between_printing_setup_and_punchline():
 
-    with patch("source.testing_exercises.joke_app.sleep", return_value=None) as mocked_sleep:
+    with patch("source.testing_exercises.joke_app.sleep") as mocked_sleep:
+        mocked_sleep.return_value = None
         with patch.object(requests, 'get') as mocked_get:
             mocked_get.return_value.json.return_value = {
                 "id": 1,
