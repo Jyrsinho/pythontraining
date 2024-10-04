@@ -1,14 +1,16 @@
-from functools import wraps
-from turtledemo.clock import setup
-from urllib.parse import urljoin
+import io
+import sys
+import time
+from time import sleep
+from xml.sax.handler import property_interning_dict
 
-import pytest
 import requests
 import requests_mock
 
-import source
-from source.testing_exercises.joke_app import get_random_joke, API_URL
+from source.testing_exercises.joke_app import get_random_joke, API_URL, print_random_joke
 from unittest.mock import patch
+
+
 
 mocked_joke = {
     "id": 123,
@@ -29,10 +31,37 @@ def test_should_mock_response_from_the_server(requests_mock):
     
 def test_should_call_the_api_once():
     
-    with patch.object(requests, 'get', wraps=requests.get) as mocked_get:
+    with patch.object(requests, 'get') as mocked_get:
+        mocked_get.return_value.json.return_value = {
+            "id": 1,
+            "setup": "Miksi joulupukki meni psykiatrille?",
+            "punchline": "Hän ei uskonut enää itseensä."
+        }
         
         get_random_joke()
         mocked_get.assert_called_once_with(API_URL)
+        
+def test_should_print_the_joke_in_correct_order(requests_mock, monkeypatch):
+    """
+    testi kestää yli kaksi sekuntia eli time.sleep ei ole mockattu.
+    myös output on väärä eli testi kutsuu APIa
+    """
+
+    mocked_stdout = io.StringIO()
+    
+    monkeypatch.setattr(sys, 'stdout', mocked_stdout)
+
+    requests_mock.get(API_URL, json=mocked_joke)
+    
+    with patch("time.sleep") as mocked_sleep:
+        print_random_joke()
+    
+    printed_output = mocked_stdout.getvalue()
+    printed_lines = printed_output.strip().split("\n")
+    expected_lines = ["Miksi joulupukki meni psykiatrille?", "Hän ei uskonut enää itseensä."]
+    
+    assert printed_lines == expected_lines
+        
     
     
        
