@@ -2,12 +2,11 @@ from time import sleep
 from dataclasses import dataclass
 import requests
 
-API_URL = "https://official-joke-api.appspot.com/jokes/random"
+API_URL = "https://opencs.it.jyu.fi/joke-api/joke/random"
 
 
 @dataclass
 class Joke:
-    type: type
     id: int
     setup: str
     punchline: str
