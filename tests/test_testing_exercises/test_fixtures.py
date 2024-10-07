@@ -5,6 +5,14 @@ import pytest
 def test_data() -> list[str]:
     return ['a', 'b']
 
+@pytest.fixture
+def test_user():
+    return {
+        "name": "Tester",
+        "email": "testing@testers.qa",
+        "password": "tester1?P*ssword"
+    }
+
 
 @pytest.fixture
 def extended_test_data(test_data) -> list[str]:
