@@ -60,6 +60,7 @@ def test_should_print_the_joke_in_correct_order(monkeypatch):
 
 
 
+#  VOISIKOHAN TÄMÄN RATKAISU OLLA KÄYTTÄÄ WRAPPERIA. VOINKO WRÄPÄTÄ SEKÄ PRINTTAUS FUNKTION, ETTÄ SLEEPIN YHTEEN?
 
 def test_print_random_joke_calls_sleep_between_prints():
     
