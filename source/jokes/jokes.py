@@ -1,6 +1,6 @@
 import random
 from dataclasses import dataclass
-from util import from_csv_to_dict
+from source.jokes.util import from_csv_to_dict
 
 
 @dataclass
