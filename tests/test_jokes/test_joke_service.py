@@ -9,6 +9,8 @@ from source.jokes.jokes import Joke
 def test_get_random_joke_returns_the_only_joke(single_joke_csv_filepath: str, single_joke: Joke):
     joke_service = JokeService(single_joke_csv_filepath)
     joke = joke_service.get_random_joke()
+    print(joke)
+    print(single_joke)
     assert joke == single_joke
 
 @pytest.mark.skip

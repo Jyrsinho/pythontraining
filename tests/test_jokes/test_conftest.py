@@ -13,5 +13,5 @@ def test_conftest_returns_a_csv_filepath(single_joke_csv_filepath):
 def test_conftest_returns_a_single_joke(single_joke):
     print(single_joke)
     assert single_joke is not None
-    
+    assert single_joke == ["Can February March?", "No, but April May."] 
 
