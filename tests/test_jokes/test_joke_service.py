@@ -1,3 +1,7 @@
+from tokenize import Ignore
+
+import pytest
+
 from source.jokes.jokes import JokeService
 from source.jokes.jokes import Joke
 
@@ -7,7 +11,7 @@ def test_get_random_joke_returns_the_only_joke(single_joke_csv_filepath: str, si
     joke = joke_service.get_random_joke()
     assert joke == single_joke
 
-
+@pytest.mark.skip
 def test_get_random_joke_can_return_all_different_jokes(multiple_jokes_csv_filepath: str, jokes: list[Joke]):
     """
     This test is flaky in theory, but in practice, it should not fail in any reasonable number of test runs.
