@@ -34,9 +34,9 @@ def create_country_by_name(country_name):
     if country_info:
         country_data = country_info[0]
         country_name_common = country_data["name"]["common"]
-        country_capital = country_data["capital"]
+        country_capital = country_data["capital"][0]
     
-    country = Country(country_name, country_name_common, country_capital)
+    country = Country(name =country_name, common_name=country_name_common,capital= country_capital)
     return country
     
 
