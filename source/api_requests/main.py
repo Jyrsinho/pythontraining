@@ -7,11 +7,8 @@ And let's mock the API connection.
 
 API 
 """
-from tkinter.font import names
 
 import requests
-
-from source.api_requests.country import Country
 
 base_url = "https://restcountries.com/v3.1/"
 
@@ -26,7 +23,23 @@ def get_country_info(country_name):
         return country_data
     else: 
         print(f"Failed to retrieve data for {country_name} {response.status_code}")
+        return None
+        
+        
+        
+def create_country_by_name(self, country_name):
+    country_info = get_country_info(country_name)
+    
+    if country_info:
+        country_data = country_info[0]
+        country_name_common = country_data["name"]["common"]
+        country_capital = country_data["capital"]
+    
+    pass
+    
 
+
+    
 country_name = "suomi"
 country_info = get_country_info(country_name)
 
