@@ -26,8 +26,8 @@ class APIClient:
         
         if response.status_code == 200:
             print("Data retrieved successfully")
-            country_data = response.json()
-            return country_data
+            country_info = response.json()
+            return country_info
         else: 
             print(f"Failed to retrieve data for {country_name} {response.status_code}")
             return None
@@ -50,6 +50,8 @@ api_client = APIClient()
 
 country_name = "suomi"
 country_info = api_client.get_country_info(country_name)
+
+print(country_info)
 
 if country_info:
     country_data = country_info[0]
