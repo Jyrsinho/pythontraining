@@ -1,7 +1,7 @@
 
 import pytest
 
-from source.api_requests.countries import Countries
+from source.country_quiz.countries import Countries
 
 
 def test_should_create_empty_countries_dictionary():
@@ -17,7 +17,7 @@ def test_should_add_country_to_countries(test_country_finland):
     
     
 def test_should_return_the_country_with_given_name(test_nordic_countries):
-    suomi = test_nordic_countries.get_country("Suomi")
+    suomi = test_nordic_countries.get_country("Finland")
     assert suomi.capital == "Helsinki"
     assert suomi.common_name == "Finland"
     

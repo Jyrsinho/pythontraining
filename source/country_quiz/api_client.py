@@ -9,19 +9,15 @@ API
 """
 
 import requests
-from source.api_requests.country import Country
+from source.country_quiz.country import Country
 
 class APIClient:
 
     base_url = "https://restcountries.com/v3.1/"    
 
-    def __init__(self):
-        self.base_url = self.base_url
-
 
     def get_country_info(self, country_name):
         url = f"{self.base_url}name/{country_name}"
-        print(url)
         response = requests.get(url)
         
         if response.status_code == 200:
@@ -38,10 +34,11 @@ class APIClient:
         
         if country_info:
             country_data = country_info[0]
+            country_name_official = country_data["name"]["official"]
             country_name_common = country_data["name"]["common"]
             country_capital = country_data["capital"][0]
     
-        country = Country(name =country_name, common_name=country_name_common,capital= country_capital)
+        country = Country(official_name =country_name_official, common_name=country_name_common,capital= country_capital)
         return country
     
 

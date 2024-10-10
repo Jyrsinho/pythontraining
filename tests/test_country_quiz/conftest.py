@@ -1,39 +1,39 @@
 import pytest
 
-from source.api_requests.countries import Countries
-from source.api_requests.country import Country
+from source.country_quiz.countries import Countries
+from source.country_quiz.country import Country
 
 
 @pytest.fixture
 def test_country_finland():
-    name = "Suomi"
+    official_name = "Republic of Finland"
     common_name = "Finland"
     capital = "Helsinki"
-    finland = Country(name=name, common_name=common_name, capital=capital)
+    finland = Country(official_name = official_name, common_name=common_name, capital=capital)
     return finland
 
 @pytest.fixture
 def test_country_sweden():
-    name = "Sverige"
+    official_name = "Kingdom of Sweden"
     common_name = "Sweden"
     capital = "Stockholm"
-    sweden = Country(name=name, common_name=common_name, capital=capital)
+    sweden = Country(official_name=official_name, common_name=common_name, capital=capital)
     return sweden
 
 @pytest.fixture
 def test_country_denmark():
-    name = "Danmark"
+    official_name = "Kingdom of Denmark"
     common_name = "Denmark"
     capital = "Copenhagen"
-    denmark = Country(name=name, common_name=common_name, capital=capital)
+    denmark = Country(official_name= official_name, common_name=common_name, capital=capital)
     return denmark
 
 @pytest.fixture
 def test_country_norway():
-    name = "Norge"
+    official_name = "Kingdom of Norway"
     common_name = "Norway"
     capital = "Oslo"
-    norway = Country(name=name, common_name=common_name, capital=capital)
+    norway = Country(official_name=official_name, common_name=common_name, capital=capital)
     return norway
 
 

@@ -10,7 +10,7 @@ class Countries:
 
     def add_country(self, country):
         "adds given country to the dictionary"
-        self.countries[country.name] = country
+        self.countries[country.common_name] = country
 
 
     def get_country(self, name):
