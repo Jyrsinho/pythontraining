@@ -13,5 +13,10 @@ class Countries:
         self.countries[country.name] = country
 
 
+    def get_country(self, name):
+        "returns the country with the given name"
+        return self.countries[name]
+
+
     def get_length(self):
         return len(self.countries)

@@ -3,7 +3,6 @@ import pytest
 from source.api_requests.api_client import APIClient
 
 
-
 @pytest.fixture
 def api_client():
     api_client = APIClient()
