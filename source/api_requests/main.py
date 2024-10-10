@@ -9,6 +9,7 @@ API
 """
 
 import requests
+from source.api_requests.country import Country
 
 base_url = "https://restcountries.com/v3.1/"
 
@@ -27,7 +28,7 @@ def get_country_info(country_name):
         
         
         
-def create_country_by_name(self, country_name):
+def create_country_by_name(country_name):
     country_info = get_country_info(country_name)
     
     if country_info:
@@ -35,7 +36,8 @@ def create_country_by_name(self, country_name):
         country_name_common = country_data["name"]["common"]
         country_capital = country_data["capital"]
     
-    pass
+    country = Country(country_name, country_name_common, country_capital)
+    return country
     
 
 
