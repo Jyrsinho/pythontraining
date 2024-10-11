@@ -25,7 +25,7 @@ mock_response = [{
 def test_should_get_new_country_from_api_data(mocker, api_client):
 
     # Create a mock response object
-    mock_response = MagicMock()
+    mock_response = mocker.MagicMock()
     mock_response.status_code = 200
     mock_response.json.return_value = [{
         "name": {
