@@ -1,9 +1,5 @@
 """
-Exercise to get data from an API
-Data is about countries
-
-Let's try at least create country objects from the API.
-And let's mock the API connection.
+Class that handles all the requests made to the API
 
 API 
 """
@@ -42,6 +38,7 @@ class APIClient:
         return country
     
 
+"""
 
 api_client = APIClient()
 
@@ -54,3 +51,5 @@ if country_info:
     country_data = country_info[0]
     print(f"{country_data["name"]["common"]}")
     print(f"{country_data["capital"]}")
+
+"""
