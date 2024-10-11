@@ -44,6 +44,8 @@ def test_should_get_new_country_from_api_data(mocker, api_client):
     # Verify the response based on the mocked status code and json data
     assert country.official_name == "Republic of Testimaa"
     assert country.capital == "Testikaupunki"
+    
+    assert 
    
    
        
