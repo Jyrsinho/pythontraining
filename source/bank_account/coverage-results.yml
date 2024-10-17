@@ -1,0 +1,6 @@
+total statement coverage: 96 
+total branch coverage: 100
+lines with missed statements (bank_account.py): ""
+lines with missed statements (savings_account.py): "0,1,2,3"
+missed branches (bank_account.py): "0->2,3->exit"
+missed branches (savings_account.py): ""
