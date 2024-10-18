@@ -1,3 +1,5 @@
+from nis import match
+
 import pytest
 from source.bank_account.bank_account import BankAccount, InsufficientFundsError
 from source.bank_account.savings_account import SavingsAccount
@@ -22,15 +24,15 @@ def test_transfer_should_transfer_all_money(account: BankAccount, savings_accoun
     assert savings_account.get_balance() == 1500
     
 def test_transfer_should_throw_error_when_transfering_more_than_balance(account: BankAccount, savings_account: SavingsAccount):
-    with pytest.raises(InsufficientFundsError):
+    with pytest.raises(InsufficientFundsError, match= "^Insufficient funds$"):
         account.transfer(savings_account, 501)
     
 def test_transfer_should_throw_error_when_transfering_zero(account: BankAccount, savings_account: SavingsAccount):
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match= "^Withdrawal amount must be positive$"):
         account.transfer(savings_account, 0)
         
 def test_transfer_should_throw_error_when_transfering_negative_amounts(account: BankAccount, savings_account: SavingsAccount):
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match= "^Withdrawal amount must be positive$"):
         account.transfer(savings_account, -1)
     
 
@@ -51,7 +53,7 @@ def test_withdraw_reduces_savings_balance(savings_account: SavingsAccount):
 
 
 def test_withdraw_raises_error_when_amount_exceeds_balance(savings_account: SavingsAccount):
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match= "^Cannot withdraw more than €1000 from savings$"):
         savings_account.withdraw(1500)
         
 def test_withdraw_does_not_raise_error_when_amount_is_balance(savings_account: SavingsAccount):
