@@ -28,6 +28,10 @@ def test_deposti_raises_error_for_zero_amount(bank_account: BankAccount):
 def test_withdraw_decreases_balance(bank_account: BankAccount):
     bank_account.withdraw(200)
     assert bank_account.get_balance() == 300
+    
+def test_withdraws_all_the_money(bank_account: BankAccount):
+    bank_account.withdraw(500)
+    assert bank_account.get_balance() == 0
 
 
 def test_withdraw_raises_error_for_insufficient_funds(bank_account: BankAccount):
@@ -62,4 +66,8 @@ def transfer_should_raise_error_when_transfering_amount_is_negative(bank_account
 
 def test_should_return_string_representation_of_bank_account(bank_account: BankAccount):
     assert bank_account.__str__() == "Esther's account balance is 500"
-    
+
+
+def test_transfer_with_insufficient_funds_by_one(bank_account: BankAccount, bank_account2: BankAccount):
+    with pytest.raises(InsufficientFundsError):
+        bank_account.transfer(bank_account2, 501)
