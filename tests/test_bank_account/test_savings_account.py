@@ -1,5 +1,5 @@
 import pytest
-from source.bank_account.bank_account import BankAccount
+from source.bank_account.bank_account import BankAccount, InsufficientFundsError
 from source.bank_account.savings_account import SavingsAccount
 
 # import account fixture
@@ -20,6 +20,10 @@ def test_transfer_should_transfer_all_money(account: BankAccount, savings_accoun
     account.transfer(savings_account, 500)
     assert account.get_balance() == 0
     assert savings_account.get_balance() == 1500
+    
+def test_transfer_should_throw_error_when_transfering_more_than_balance(account: BankAccount, savings_account: SavingsAccount):
+    with pytest.raises(InsufficientFundsError):
+        account.transfer(savings_account, 501)
     
 def test_transfer_should_throw_error_when_transfering_zero(account: BankAccount, savings_account: SavingsAccount):
     with pytest.raises(ValueError):
