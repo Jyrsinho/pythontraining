@@ -30,3 +30,6 @@ def test_withdraw_reduces_savings_balance(savings_account: SavingsAccount):
 def test_withdraw_raises_error_when_amount_exceeds_balance(savings_account: SavingsAccount):
     with pytest.raises(ValueError):
         savings_account.withdraw(1500)
+        
+def test_should_not_apply_interest_to_savings_account_if_savings_account_balance_equal_to_zero(savings_account: SavingsAccount):
+    

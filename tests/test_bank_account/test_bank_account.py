@@ -30,3 +30,6 @@ def test_withdraw_raises_error_for_insufficient_funds(bank_account: BankAccount)
 def test_withdraw_raises_error_for_negative_amount(bank_account: BankAccount):
     with pytest.raises(ValueError):
         bank_account.withdraw(-100)
+
+def test_should_return_string_representation_of_bank_account(bank_account: BankAccount):
+    assert bank_account.__str__() == "Esther's account balance is 500"
