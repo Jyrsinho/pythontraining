@@ -15,6 +15,10 @@ def test_deposit_increases_balance(bank_account: BankAccount):
 def test_deposit_raises_error_for_negative_amount(bank_account: BankAccount):
     with pytest.raises(ValueError):
         bank_account.deposit(-100)
+        
+def test_deposti_raises_error_for_zero_amount(bank_account: BankAccount):
+    with pytest.raises(ValueError):
+        bank_account.deposit(0)
 
 
 def test_withdraw_decreases_balance(bank_account: BankAccount):
