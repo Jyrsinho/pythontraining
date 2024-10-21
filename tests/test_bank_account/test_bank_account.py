@@ -10,6 +10,11 @@ def bank_account():
 def bank_account2():
     return BankAccount("Timo", 500)
 
+def test_bank_account_default_balance_is_zero():
+    account = BankAccount("TestOwner")
+    assert account.get_balance() == 0.0
+    
+
 def test_deposit_increases_balance(bank_account: BankAccount):
     bank_account.deposit(200)
     assert bank_account.get_balance() == 700

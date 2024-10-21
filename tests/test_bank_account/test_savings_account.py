@@ -68,6 +68,13 @@ def test_should_not_apply_interest_for_zero_balance(savings_account: SavingsAcco
     savings_account.balance = 0
     savings_account.apply_interest()
     assert savings_account.get_balance() == 0
-    
 
 
+def test_should_return_string_representation_of_bank_account(savings_account: SavingsAccount):
+    assert savings_account.__str__() == "Esther's account balance is 1000"
+
+
+def test_should_return_same_amount_when_applied_interest_rate_zero(savings_account: SavingsAccount):
+    savings_account.interest_rate = 0.0
+    savings_account.apply_interest()
+    assert savings_account.get_balance() == 1000
