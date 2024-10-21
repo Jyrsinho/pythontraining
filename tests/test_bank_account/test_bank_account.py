@@ -60,6 +60,7 @@ def test_withdraw_raises_error_for_negative_amount(bank_account: BankAccount):
 def test_withdraw_raises_error_for_zero_amount(bank_account: BankAccount):
     with pytest.raises(ValueError, match= "^Withdrawal amount must be positive$"):
         bank_account.withdraw(0)
+
         
 def test_transfer_should_raise_error_when_transfering_more_money_than_current_balance(bank_account: BankAccount, bank_account2: BankAccount):
     with pytest.raises(InsufficientFundsError, match= "^Insufficient funds$"):

@@ -78,3 +78,16 @@ def test_should_return_same_amount_when_applied_interest_rate_zero(savings_accou
     savings_account.interest_rate = 0.0
     savings_account.apply_interest()
     assert savings_account.get_balance() == 1000
+
+def test_withdraw_raises_error_for_zero_amount(savings_account: SavingsAccount):
+    with pytest.raises(ValueError, match= "^Withdrawal amount must be positive$"):
+        savings_account.withdraw(0)
+
+def test_withdraw_raises_error_for_negative_amount(savings_account: SavingsAccount):
+    with pytest.raises(ValueError, match= "^Withdrawal amount must be positive$"):
+        savings_account.withdraw(-5)
+        
+def test_should_apply_interest_with_values_less_than_one_but_greater_than_zero(savings_account: SavingsAccount):
+    savings_account.balance =1.0
+    savings_account.apply_interest()
+    assert savings_account.get_balance() == 1.05
