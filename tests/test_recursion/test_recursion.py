@@ -1,6 +1,6 @@
 from numpy.ma.core import equal
 
-from source.recursion.recursion import factorial, fibonacci
+from source.recursion.recursion import factorial, fibonacci, recursive_sum
 
 
 def test_factorial_should_return_one_for_one() :
@@ -26,5 +26,13 @@ def test_fibonacci_should_return_fiftyfive_for_ten():
     assert fibonacci(10) == 55
     
 def test_recursivesum_should_return_zero_for_zero():
-    assert recursivesum(0) == 0;
+    assert recursive_sum(0) == 0
     
+def test_recursivesum_should_return_one_for_one():
+    assert recursive_sum(1) == 1
+    
+def test_recursivesum_should_return_three_for_two():
+    assert recursive_sum(2) == 3
+    
+def test_recursivesum_should_return_fifteen_for_five():
+    assert recursive_sum(5) == 15

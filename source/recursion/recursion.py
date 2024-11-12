@@ -1,3 +1,6 @@
+
+import pandas as pd
+
 """
 Let's do here some recursion assignments
 """
@@ -24,3 +27,17 @@ def fibonacci(x):
         return x
     else: return fibonacci(x-1) + fibonacci(x-2)
     
+    
+def recursive_sum(x):
+    
+    if (x <= 1):
+        return x
+    else: return recursive_sum(x-1) + x                                    
+    
+
+def pandas():
+    data = pd.Series([1, 3, 0.5, 2, 5])
+    sorted_data = data.sort_values(ascending=True)
+    print(sorted_data)
+    
+pandas()
